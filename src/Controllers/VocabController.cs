@@ -21,5 +21,11 @@ namespace src.Controllers
                         .Where(x => x.Alphabet == alphabet)
                         .OrderBy(x => Guid.NewGuid());
         }
+
+        public IQueryable<Vocabulary> GetByAll()
+        {
+            return db.Vocabularies
+                        .OrderBy(x => Guid.NewGuid());
+        }
     }
 }
