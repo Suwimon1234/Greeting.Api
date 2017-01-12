@@ -15,12 +15,11 @@ namespace src.Controllers
             this.db = db;
         }
         
-        public IActionResult GetByAlphabet(string alphabet)
+        public IQueryable<Vocabulary> GetByAlphabet(string alphabet)
         {
-            return Ok(db.Vocabularies
+            return db.Vocabularies
                         .Where(x => x.Alphabet == alphabet)
-                        .OrderBy(x => Guid.NewGuid())
-                        .Take(1));
+                        .OrderBy(x => Guid.NewGuid());
         }
     }
 }
